@@ -3,6 +3,8 @@ import JoblyApi from "./api";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Routes from "./Routes";
+import { BrowserRouter } from "react-router-dom";
+import NavBar from "./NavBar";
 
 function App() {
   /*const [companies, setCompanies] = useState({});
@@ -17,11 +19,14 @@ function App() {
 
   console.log(companies);*/
   return (
-    <div className="App">
-      <header className="App-header">
-        <Routes />
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <NavBar />
+          <Routes />
+        </header>
+      </div>
+    </BrowserRouter>
   );
 }
 
