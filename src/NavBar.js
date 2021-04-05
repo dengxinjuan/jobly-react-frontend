@@ -9,7 +9,7 @@ const ACTIVE_STYLE = {
 
 function NavBar() {
   return (
-    <AppBar>
+    <AppBar position="static">
       <Toolbar>
         <Button>Hello!</Button>
         <NavLink exact to="/" activeStyle={ACTIVE_STYLE}>
