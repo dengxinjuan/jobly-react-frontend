@@ -5,6 +5,7 @@ import CompanyCard from "./CompanyCard";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import { SearchForm } from "../SearchForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,16 +32,25 @@ function CompanyList() {
     getCompany();
   }, []);
 
-  console.log(allCompany);
+  //console.log(allCompany);
   if (!allCompany) return "loading!";
+
+  /* we decalre the searchCompanyName function to pass in the form*/
+  async function search(name) {
+    let companies = await JoblyApi.getCompanyByName(name);
+    setAllCompany(companies);
+    console.log(allCompany);
+  }
 
   return (
     <div className={classes.root}>
-      <h1>Hello!!!</h1>
+      <h3>Search the dream company!</h3>
 
       <Grid container spacing={3} justify="center">
         <Grid item xs={12}>
-          <Paper className={classes.paper}>Company List!</Paper>
+          <Paper className={classes.paper}>
+            <SearchForm search={search} />
+          </Paper>
         </Grid>
 
         {allCompany.map((n) => (

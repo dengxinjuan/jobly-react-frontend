@@ -4,12 +4,12 @@ import { AppBar, Toolbar, Button } from "@material-ui/core";
 const ACTIVE_STYLE = {
   fontWeight: "bold",
   color: "gold",
-  margin: "10px",
+  padding: "10px",
 };
 
 function NavBar() {
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Toolbar>
         <Button>Hello!</Button>
         <NavLink exact to="/" activeStyle={ACTIVE_STYLE}>
