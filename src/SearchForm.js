@@ -1,11 +1,26 @@
 import { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& > *": {
+      margin: theme.spacing(1),
+      width: "25ch",
+    },
+  },
+}));
 
 export const SearchForm = ({ search }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const classes = useStyles(); //use material ui
+  const [searchTerm, setSearchTerm] = useState(""); //set search term
+  /*handle change*/
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
+  /*handle submit and herit search function*/
   const handleSubmit = (e) => {
     e.preventDefault();
     search(searchTerm.trim() || undefined);
@@ -13,14 +28,19 @@ export const SearchForm = ({ search }) => {
   };
 
   return (
-    <form>
-      <input
+    <form className={classes.root} noValidate autoComplete="off">
+      <TextField
         type="text"
-        placeholder="searchterm"
+        label="Search Term"
+        variant="outlined"
+        color="primary"
+        size="small"
         value={searchTerm}
         onChange={handleChange}
       />
-      <button onClick={handleSubmit}>Search!</button>
+      <Button onClick={handleSubmit} size="large">
+        Search!
+      </Button>
     </form>
   );
 };
