@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    padding: 25,
   },
   paper: {
     padding: theme.spacing(2),
@@ -43,7 +44,7 @@ function CompanyList() {
         </Grid>
 
         {allCompany.map((n) => (
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={3}>
             <CompanyCard
               name={n.name}
               description={n.description}
