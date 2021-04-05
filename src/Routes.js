@@ -1,10 +1,9 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Company from "./Company";
-import CompanyList from "./CompanyList";
+import Company from "./companies/Company";
+import CompanyList from "./companies/CompanyList";
 import HomePage from "./Homepage";
 import JobList from "./JobList";
 import LoginForm from "./LoginForm";
-import NavBar from "./NavBar";
 import ProfileForm from "./ProfileForm";
 import SignUpForm from "./SignUpForm";
 
