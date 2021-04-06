@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const SearchForm = ({ search }) => {
+const SearchForm = ({ search }) => {
   const classes = useStyles(); //use material ui
   const [searchTerm, setSearchTerm] = useState(""); //set search term
   /*handle change*/
@@ -44,3 +44,5 @@ export const SearchForm = ({ search }) => {
     </form>
   );
 };
+
+export default SearchForm;

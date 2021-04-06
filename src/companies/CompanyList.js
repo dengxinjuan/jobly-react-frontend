@@ -5,7 +5,7 @@ import CompanyCard from "./CompanyCard";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import { SearchForm } from "../SearchForm";
+import SearchForm from "../SearchForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
