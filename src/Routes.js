@@ -6,6 +6,7 @@ import JobList from "./JobList";
 import LoginForm from "./LoginForm";
 import ProfileForm from "./ProfileForm";
 import SignUpForm from "./SignUpForm";
+import Job from "./jobs/Job";
 
 function Routes() {
   return (
@@ -22,6 +23,9 @@ function Routes() {
         </Route>
         <Route exact path="/jobs">
           <JobList />
+        </Route>
+        <Route exact path="/jobs/:id">
+          <Job />
         </Route>
         <Route exact path="/login">
           <LoginForm />
