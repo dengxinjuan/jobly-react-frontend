@@ -34,7 +34,9 @@ const JobCard = ({ id, title, salary, equity, companyName, companyHandle }) => {
             color="textSecondary"
             gutterBottom
           >
-            <h2>{title}</h2>
+            <Link to={`/jobs/${id}`}>
+              <h2>{title}</h2>
+            </Link>
           </Typography>
 
           <Typography variant="body2" component="p">

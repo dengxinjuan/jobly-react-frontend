@@ -28,10 +28,10 @@ function Routes({ login, signup }) {
           <Job />
         </Route>
         <Route exact path="/login">
-          <LoginForm />
+          <LoginForm login={login} />
         </Route>
         <Route exact path="/signup">
-          <SignUpForm />
+          <SignUpForm signup={signup} />
         </Route>
         <Route exact path="/profile">
           <ProfileForm />

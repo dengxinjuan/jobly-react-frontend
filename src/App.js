@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import NavBar from "./NavBar";
 
 function App() {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState("");
 
   /** Handles site-wide signup.
    *

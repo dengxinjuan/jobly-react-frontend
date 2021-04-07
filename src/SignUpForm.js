@@ -13,7 +13,7 @@ import Alert from "./Alert";
  * Routed as /signup
  */
 
-function SignupForm({ signup }) {
+function SignUpForm({ signup }) {
   const history = useHistory();
   const [formData, setFormData] = useState({
     username: "",
@@ -23,16 +23,6 @@ function SignupForm({ signup }) {
     email: "",
   });
   const [formErrors, setFormErrors] = useState([]);
-
-  console.debug(
-    "SignupForm",
-    "signup=",
-    typeof signup,
-    "formData=",
-    formData,
-    "formErrors=",
-    formErrors
-  );
 
   /** Handle form submit:
    *
@@ -130,4 +120,4 @@ function SignupForm({ signup }) {
   );
 }
 
-export default SignupForm;
+export default SignUpForm;
