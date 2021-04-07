@@ -8,7 +8,7 @@ import ProfileForm from "./ProfileForm";
 import SignUpForm from "./SignUpForm";
 import Job from "./jobs/Job";
 
-function Routes() {
+function Routes({ login, signup }) {
   return (
     <div>
       <Switch>
