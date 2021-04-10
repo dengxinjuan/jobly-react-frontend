@@ -5,6 +5,7 @@ import Routes from "./Routes";
 import { BrowserRouter } from "react-router-dom";
 import NavBar from "./NavBar";
 import jwt from "jsonwebtoken";
+import UserContext from "./UserContext";
 
 function App() {
   const [token, setToken] = useState("");
@@ -43,6 +44,13 @@ function App() {
     }
   }
 
+  /*log out we set everything to null*/
+
+  function logout() {
+    setCurrentUser(null);
+    setToken(null);
+  }
+
   // Load user info from API. Until a user is logged in and they have a token,
   // this should not run. It only needs to re-run when a user logs out, so
   // the value of the token is a dependency for this effect.
@@ -79,13 +87,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
-        <header className="App-header">
-          <NavBar />
-          <h1>Hello! {currentUser ? currentUser.username : "Gergerous"}</h1>
-          <Routes login={login} signup={signup} />
-        </header>
-      </div>
+      <UserContext.Provider value={currentUser}>
+        <div className="App">
+          <header className="App-header">
+            <NavBar logout={logout} />
+            <Routes login={login} signup={signup} />
+          </header>
+        </div>
+      </UserContext.Provider>
     </BrowserRouter>
   );
 }

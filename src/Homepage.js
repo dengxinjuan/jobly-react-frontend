@@ -1,5 +1,15 @@
+import { useContext } from "react";
+import UserContext from "./UserContext";
+import LoginForm from "./LoginForm";
+
 const HomePage = () => {
-  return <h1> Welcome to the jobly!</h1>;
+  const currentUser = useContext(UserContext);
+  return (
+    <div>
+      {currentUser ? currentUser.username : "Dear user, "} Welcome to the jobly!
+      {currentUser ? "search start now" : <LoginForm />}
+    </div>
+  );
 };
 
 export default HomePage;
