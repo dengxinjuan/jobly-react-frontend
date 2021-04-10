@@ -6,9 +6,12 @@ import { BrowserRouter } from "react-router-dom";
 import NavBar from "./NavBar";
 import jwt from "jsonwebtoken";
 import UserContext from "./UserContext";
+import useLocalStorage from "./hooks/useLocalStorage";
+
+export const TOKEN_STORAGE_ID = "jobly-token";
 
 function App() {
-  const [token, setToken] = useState("");
+  const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
   const [currentUser, setCurrentUser] = useState(null);
   const [infoLoaded, setInfoLoaded] = useState(false);
 
