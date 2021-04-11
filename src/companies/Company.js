@@ -4,6 +4,7 @@ import JoblyApi from "../api";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import JobCard from "../jobs/JobCard";
 
 const Company = () => {
   const { handle } = useParams(); // grab company handle from route
@@ -32,6 +33,20 @@ const Company = () => {
           The Employee Number is {theCompany.numEmployees}
         </ListItemText>
         <ListItemText>{theCompany.description}</ListItemText>
+
+        <ListItem>Available Jobs:</ListItem>
+        {theCompany.jobs.map((job) => (
+          <ListItem>
+            <JobCard
+              id={job.id}
+              title={job.title}
+              salary={job.salary}
+              equity={job.equity}
+              companyName={job.companyName}
+              companyHandle={job.companyHandle}
+            />
+          </ListItem>
+        ))}
       </List>
     </div>
   );
