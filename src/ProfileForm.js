@@ -1,5 +1,15 @@
+import { useContext } from "react";
+import UserContext from "./UserContext";
+
 const ProfileForm = () => {
-  return <div>This is ProfileForm!</div>;
+  const currentUser = useContext(UserContext);
+  return (
+    <div>
+      UserName: {currentUser ? currentUser.username : "Hello"}
+      Email: {currentUser.email}
+      This is ProfileForm!
+    </div>
+  );
 };
 
 export default ProfileForm;
