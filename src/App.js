@@ -14,6 +14,8 @@ function App() {
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
   const [currentUser, setCurrentUser] = useState(null);
   const [infoLoaded, setInfoLoaded] = useState(false);
+  /*we save the application Ids here*/
+  const [applicationIds, setApplicationIds] = useState(new Set([]));
 
   /** Handles site-wide signup.
    *
@@ -88,9 +90,32 @@ function App() {
     [token]
   );
 
+  /* apply job functions section here */
+  /** Checks if a job has been applied for. */
+  function hasAppliedToJob(id) {
+    return applicationIds.has(id);
+  }
+
+  /** Apply to a job: make API call and update set of application IDs. */
+  function applyToJob(id) {
+    if (hasAppliedToJob(id)) return;
+    JoblyApi.applyToJob(currentUser.username, id);
+    setApplicationIds(new Set([...applicationIds, id]));
+  }
+
+  /* give the loading info if loading*/
+  if (!infoLoaded) return "Loading!";
+
   return (
     <BrowserRouter>
-      <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+      <UserContext.Provider
+        value={{
+          currentUser,
+          setCurrentUser,
+          hasAppliedToJob,
+          applyToJob,
+        }}
+      >
         <div className="App">
           <header className="App-header">
             <NavBar logout={logout} />

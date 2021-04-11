@@ -5,7 +5,10 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import UserContext from "../UserContext";
 
+/*material ui styles*/
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -25,6 +28,26 @@ const useStyles = makeStyles({
 
 const JobCard = ({ id, title, salary, equity, companyName, companyHandle }) => {
   const classes = useStyles();
+  /*set the apply job status*/
+  const [applied, setApplied] = useState(false);
+  /*get the apply job function from context*/
+  const { hasAppliedToJob, applyToJob } = useContext(UserContext);
+
+  /*set the apply status when loading*/
+  useEffect(
+    function updateAppliedStatus() {
+      setApplied(hasAppliedToJob(id));
+    },
+    [id, hasAppliedToJob]
+  );
+
+  /** Apply for a job */
+  async function handleApply(evt) {
+    if (hasAppliedToJob(id)) return;
+    applyToJob(id);
+    setApplied(true);
+  }
+
   return (
     <div key={id} id={id}>
       <Card className={classes.root}>
@@ -53,8 +76,8 @@ const JobCard = ({ id, title, salary, equity, companyName, companyHandle }) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">
-            <Link>Apply</Link>
+          <Button size="small" onClick={handleApply} disabled={applied}>
+            {applied ? "Applied" : "Apply"}
           </Button>
         </CardActions>
       </Card>

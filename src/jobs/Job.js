@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import JoblyApi from "../api";
+import JobCard from "./JobCard";
 
 const Job = () => {
   const { id } = useParams();
@@ -23,14 +24,14 @@ const Job = () => {
 
   return (
     <div>
-      <h1>{theJob.title}</h1>
-      <h2>
-        <Link to={`/companies/${theJob.company.handle}`}>
-          company:{theJob.company.name}
-        </Link>
-      </h2>
-
-      <h2>salary: ${theJob.salary}</h2>
+      <JobCard
+        id={theJob.id}
+        title={theJob.title}
+        salary={theJob.salary}
+        companyName={theJob.company.name}
+        equity={theJob.equity}
+        companyHandle={theJob.company.handle}
+      />
     </div>
   );
 };
