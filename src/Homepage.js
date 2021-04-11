@@ -4,7 +4,7 @@ import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
-  const currentUser = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   return (
     <div>
       <div>

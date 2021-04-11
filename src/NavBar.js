@@ -10,7 +10,7 @@ const ACTIVE_STYLE = {
 };
 
 function NavBar({ logout }) {
-  const currentUser = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   function loggedIn() {
     return (
       <div>

@@ -7,6 +7,7 @@ import LoginForm from "./LoginForm";
 import ProfileForm from "./ProfileForm";
 import SignUpForm from "./SignUpForm";
 import Job from "./jobs/Job";
+import PrivateRoute from "./routes/PrivateRoute";
 
 function Routes({ login, signup }) {
   return (
@@ -33,9 +34,9 @@ function Routes({ login, signup }) {
         <Route exact path="/signup">
           <SignUpForm signup={signup} />
         </Route>
-        <Route exact path="/profile">
+        <PrivateRoute exact path="/profile">
           <ProfileForm />
-        </Route>
+        </PrivateRoute>
       </Switch>
     </div>
   );
