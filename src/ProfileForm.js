@@ -85,7 +85,6 @@ const ProfileForm = () => {
       <div>
         <Avatar className={classes.orange}>{currentUser.lastName}</Avatar>
         {currentUser ? currentUser.username : "Hello"}
-        Email: {currentUser.email}
       </div>
       <div className="col-md-6 col-lg-4 offset-md-3 offset-lg-4">
         <h3>Profile</h3>

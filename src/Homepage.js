@@ -5,15 +5,8 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const { currentUser } = useContext(UserContext);
-  return (
-    <div>
-      <div>
-        <h2>
-          Dear {currentUser ? currentUser.username : "user "}, Welcome to the
-          jobly!
-        </h2>
-      </div>
-
+  function loggedView() {
+    return (
       <div>
         <Button variant="contained" color="primary" size="large">
           <Link exact to="/login">
@@ -26,6 +19,17 @@ const HomePage = () => {
           </Link>
         </Button>
       </div>
+    );
+  }
+  return (
+    <div>
+      <div>
+        <h2>
+          Dear {currentUser ? currentUser.username : "user "}, Welcome to the
+          jobly!
+        </h2>
+      </div>
+      {currentUser ? "Start Search Now!" : loggedView()}
     </div>
   );
 };
