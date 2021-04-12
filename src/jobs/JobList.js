@@ -42,7 +42,8 @@ function JobList() {
 
   return (
     <div className={classes.root}>
-      <h2>Search the jobs.</h2>
+      <hr></hr>
+      <h3>Search the jobs.</h3>
       <Grid container spacing={3} justify="center">
         <Grid item xs={12}>
           <Paper className={classes.paper}>

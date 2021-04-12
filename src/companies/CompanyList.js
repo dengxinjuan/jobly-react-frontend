@@ -44,6 +44,7 @@ function CompanyList() {
 
   return (
     <div className={classes.root}>
+      <hr></hr>
       <h3>Search the dream company!</h3>
 
       <Grid container spacing={3} justify="center">
