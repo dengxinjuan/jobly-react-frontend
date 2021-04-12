@@ -4,6 +4,7 @@ import JoblyApi from "../api";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import Grid from "@material-ui/core/Grid";
 import JobCard from "../jobs/JobCard";
 
 const Company = () => {
@@ -27,7 +28,7 @@ const Company = () => {
   return (
     <div>
       <List>
-        <ListItem>{theCompany.name}</ListItem>
+        <ListItem>Company:</ListItem>
         <img src={theCompany.logoUrl} alt={theCompany.handle} />
         <ListItemText>
           The Employee Number is {theCompany.numEmployees}
@@ -35,18 +36,20 @@ const Company = () => {
         <ListItemText>{theCompany.description}</ListItemText>
 
         <ListItem>Available Jobs:</ListItem>
-        {theCompany.jobs.map((job) => (
-          <ListItem>
-            <JobCard
-              id={job.id}
-              title={job.title}
-              salary={job.salary}
-              equity={job.equity}
-              companyName={job.companyName}
-              companyHandle={job.companyHandle}
-            />
-          </ListItem>
-        ))}
+        <Grid container spacing={3} justify="center">
+          {theCompany.jobs.map((job) => (
+            <Grid style={{ display: "row", padding: 20 }}>
+              <JobCard
+                id={job.id}
+                title={job.title}
+                salary={job.salary}
+                equity={job.equity}
+                companyName={job.companyName}
+                companyHandle={job.companyHandle}
+              />
+            </Grid>
+          ))}
+        </Grid>
       </List>
     </div>
   );
