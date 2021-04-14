@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import jwt from "jsonwebtoken";
 import UserContext from "./UserContext";
 import useLocalStorage from "./hooks/useLocalStorage";
+import Footer from "./Footer/Footer";
 
 export const TOKEN_STORAGE_ID = "jobly-token";
 
@@ -121,6 +122,7 @@ function App() {
             <NavBar logout={logout} />
             <Routes login={login} signup={signup} />
           </header>
+          <Footer />
         </div>
       </UserContext.Provider>
     </BrowserRouter>
